@@ -7,13 +7,13 @@
     "folds" : "",
     "hash" : "0",
     "id" : "68E8C720",
-    "lastKnownWriteTime" : 1585586111,
-    "last_content_update" : 1585586111792,
+    "lastKnownWriteTime" : 1585586770,
+    "last_content_update" : 1585586779040,
     "path" : "~/Desktop/R Scripts/Coursera_R/ProgrammingAssignment4/Cleaning_data_code_samsung/run_analysis.R",
     "project_path" : "run_analysis.R",
     "properties" : {
-        "cursorPosition" : "53,72",
-        "scrollLine" : "34",
+        "cursorPosition" : "59,72",
+        "scrollLine" : "42",
         "tempName" : "Untitled1"
     },
     "read_only" : false,

@@ -2,15 +2,21 @@
 library(dplyr)
 library(data.table)
 
-#### Access Files #####
+#### Access Files from zip #####
+
+fileurl = 'https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip'
+if (!file.exists('./UCI HAR Dataset.zip')){
+        download.file(fileurl,'./UCI HAR Dataset.zip', mode = 'wb')
+        unzip("UCI HAR Dataset.zip", exdir = getwd())
+}
 
 # Feature names
-dir2features <- "/Users/nyatchen/Desktop/R Scripts/Coursera_R/ProgrammingAssignment4/UCI HAR Dataset/"
+dir2features <- "./UCI HAR Dataset/"
 feature_names <- read.table(paste0(dir2features,'features.txt'))$V2
 activity_labels <- read.table(paste0(dir2features,'activity_labels.txt'))$V2
 
 # Train data
-dir2train <- "/Users/nyatchen/Desktop/R Scripts/Coursera_R/ProgrammingAssignment4/UCI HAR Dataset/train/"
+dir2train <- "./UCI HAR Dataset/train/"
 subject_train <- read.table(paste0(dir2train,'subject_train.txt'), col.names = 'subject_id')
 X_train <- read.table(paste0(dir2train,'X_train.txt'))
 names(X_train) = feature_names
@@ -18,7 +24,7 @@ y_train <- read.table(paste0(dir2train,'y_train.txt'), col.names = 'activity')
 train_data <- cbind(subject_train, X_train, y_train)
 
 # Test data
-dir2test <- "/Users/nyatchen/Desktop/R Scripts/Coursera_R/ProgrammingAssignment4/UCI HAR Dataset/test/"
+dir2test <- "./UCI HAR Dataset/test/"
 subject_test <- read.table(paste0(dir2test,'subject_test.txt'), col.names = 'subject_id')
 X_test <- read.table(paste0(dir2test,'X_test.txt'))
 names(X_test) = feature_names
