@@ -39,11 +39,14 @@ levels(extract_data$activity) = activity_labels
 
 # Labeling data with descriptive variable names
 extract_names <- names(extract_data)
-extract_names <- sub('Acc', 'Acceleration', extract_names)
+extract_names <- sub('Acc', 'Accelerometer', extract_names)
+extract_names <- sub('Gyro', 'Gyroscope', extract_names)
 extract_names <- sub('Mag', 'Magnitude', extract_names)
 extract_names <- sub('^t', 'time', extract_names)
 extract_names <- sub('^f', 'frequency', extract_names)
 extract_names <- sub('BodyBody', 'Body', extract_names)
+extract_names <- sub('\\(\\)', '', extract_names)
+extract_names <- sub('std', 'StandardDeviation', extract_names)
 names(extract_data) <- extract_names
 
 # Creating average of each variable for each activity and each subject
